@@ -1,8 +1,17 @@
-import React, { Component } from "./node_modules/react";
+import React from "react";
+import PropTypes from "prop-types";
 
-class UserItem extends Component {
-  render() {
-    return;
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
+  // state = {
+  //   id: "id",
+  //   login: "guru",
+  //   avatar_url: "https://avatars2.githubusercontent.com/u/56821782?s=400&v=4",
+  //   html_url: "https://github.com/goku20"
+  // };
+
+  // const { l } = this.props.user;
+
+  return (
     <div className='card text-center'>
       <img
         src={avatar_url}
@@ -17,8 +26,10 @@ class UserItem extends Component {
           more
         </a>
       </div>
-    </div>;
-  }
-}
-
+    </div>
+  );
+};
+UserItem.prototype = {
+  user: PropTypes.object.isRequired,
+};
 export default UserItem;
