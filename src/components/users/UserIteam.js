@@ -29,7 +29,7 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
     </div>
   );
 };
-UserItem.prototype = {
+UserItem.PropTypes = {
   user: PropTypes.object.isRequired,
 };
 export default UserItem;

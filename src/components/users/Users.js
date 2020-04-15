@@ -1,51 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import UserItem from "./UserIteam";
-class Users extends Component {
-  //   state = {
-  //     users: [
-  //       {
-  //         id: "1",
-  //         login: "guru",
-  //         avatar_url:
-  //           "https://avatars2.githubusercontent.com/u/56821782?s=400&v=4",
-  //         html_url: "https://github.com/goku20",
-  //       },
-  //       {
-  //         id: "2",
-  //         login: "mojombo",
-  //         avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-  //         html_url: "https://github.com/mojombo",
-  //       },
-  //       {
-  //         id: "3",
-  //         login: "defunk",
-  //         avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
-  //         html_url: "https://github.com/defunkt",
-  //       },
-  //       {
-  //         id: "4",
-  //         login: "wycats",
-  //         avatar_url: "https://avatars0.githubusercontent.com/u/4?v=4",
-  //         html_url: "s://github.com/wycats",
-  //       },
-  //     ],
-  //   };
+import Spinner from "../layout/Spinner";
+import PropTypes from "prop-types";
 
-  render() {
+const Users = ({ users, loading }) => {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
-      // <div style={userStyle}>
-      //   {this.state.users.map(user => (
-      //     <UserItem key={user.id} user={user} />
-      //   ))}
-      // {/* </div> */}
       <div style={userStyle}>
-        {this.props.users.map((user) => (
+        {users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
       </div>
     );
   }
-}
+};
+
+Users.PropTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
+
 const userStyle = {
   display: "grind",
   grindTemplateColumns: "repeat(3, 1fr)",
