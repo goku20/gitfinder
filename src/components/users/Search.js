@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export class Search extends Component {
   state = {
-    text: " ",
+    searchtext: " ",
   };
 
   static propTypes = {
@@ -13,7 +13,8 @@ export class Search extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.searchUsers(this.state.text);
-    this.setState({ text: " " });
+    console.log(this.state.text);
+    this.setState({ text: "" });
   };
 
   oneChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -25,7 +26,7 @@ export class Search extends Component {
           <input
             type='text'
             name='text'
-            placeholder='Search Users..'
+            placeholder='Search Users...'
             value={this.state.text}
             oneChange={this.oneChange}
           />
