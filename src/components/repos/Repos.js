@@ -10,4 +10,4 @@ Repos.propTypes = {
   repos: PropTypes.arry.isRequired,
 };
 
-export default Repos;
+// export default Repos;
